@@ -1,0 +1,8 @@
+<h2>Discounts</h2>
+<!-- <h3>{{errorMsg}}</h3> -->
+<table>
+    <tr *ngFor="let discount of discounts">
+        <td>{{discount.title}} - {{discount.category}} - {{discount.image}}</td>
+        <td><button (click)="delete(discount)">delete</button></td>
+    </tr>
+</table>

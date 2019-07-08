@@ -1,0 +1,21 @@
+<h2>category</h2>
+
+<form (submit)="add(categoryName.value); categoryName.value">
+<div>
+    <input type="text" #categoryName placeholder="Enter new category"/>
+</div>
+    <input type="submit" value="SUBMIT" />
+</form>
+<table>
+    <tr *ngFor="let category of categories">
+        <td>
+            <a (click)="edit(category)">
+            <span  *ngIf="category!==editCategory">{{category.name}}</span>
+            <input type="text" *ngIf="category==editCategory" [(ngModel)]="category.name" (blur)="update()" (keyup.enter)="update()" />
+            </a> 
+        </td>
+        <td><button (click)="delete(category)">delete</button></td>
+    </tr>
+</table>
+
+<small>click on name to edit</small>
