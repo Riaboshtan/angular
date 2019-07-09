@@ -1,12 +1,26 @@
-export interface IDiscount {
+export interface IDiscount{
     id: number,
     title: string,
     details: string,
     cafe: string,
-    image: string,
-    location: string,
     category: number,
-    time: number,
-    overlay: number,
-    height: number,
+    location: string,
+    time: string,
+    overlay: string,
+    height: string,
+    image: string
+}
+
+export class Discount {
+    constructor(
+        public title: string,
+        public details: string,
+        public cafe: string,
+        public location: string,
+        public category: string,
+        public time: string,
+        public overlay: string,
+        public height: string,
+        public image: string
+        ){}
 }

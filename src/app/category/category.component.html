@@ -1,11 +1,15 @@
-<h2>category</h2>
-
+<div class="block">
+<h2>Category</h2>
+<hr/>
+<h3>Add category</h3>
 <form (submit)="add(categoryName.value); categoryName.value">
-<div>
+<div class="add">
     <input type="text" #categoryName placeholder="Enter new category"/>
 </div>
     <input type="submit" value="SUBMIT" />
 </form>
+<hr/>
+<h3>Existing Categories</h3>
 <table>
     <tr *ngFor="let category of categories">
         <td>
@@ -17,5 +21,6 @@
         <td><button (click)="delete(category)">delete</button></td>
     </tr>
 </table>
-
 <small>click on name to edit</small>
+
+</div>

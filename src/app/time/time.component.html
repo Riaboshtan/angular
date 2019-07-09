@@ -1,1 +1,27 @@
-<p>time works!</p>
+<div class="block">
+    <h2>Time</h2>
+    <hr/>
+    <h3>Add Time of day</h3>
+    <form (submit)="add(timeName.value); timeName.value">
+    <div class="add">
+        <input type="text" #timeName placeholder="Enter new time"/>
+    </div>
+        <input type="submit" value="SUBMIT" />
+    </form>
+    <hr/>
+    <h3>Existing Time of day</h3>
+    <table>
+        <tr *ngFor="let time of times">
+            <td>
+                <a (click)="edit(time)">
+                <span  *ngIf="time!==editTime">{{time.name}}</span>
+                <input type="text" *ngIf="time==editTime" [(ngModel)]="time.name" (blur)="update()" (keyup.enter)="update()" />
+                </a> 
+            </td>
+            <td><button (click)="delete(time)">delete</button></td>
+        </tr>
+    </table>
+    
+    <small>click on name to edit</small>
+    
+    </div>

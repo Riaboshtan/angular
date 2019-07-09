@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { OverlayComponent } from './overlay.component';
+import { DiscountDetailsComponent } from './discount-details.component';
 
-describe('OverlayComponent', () => {
-  let component: OverlayComponent;
-  let fixture: ComponentFixture<OverlayComponent>;
+describe('DiscountDetailsComponent', () => {
+  let component: DiscountDetailsComponent;
+  let fixture: ComponentFixture<DiscountDetailsComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ OverlayComponent ]
+      declarations: [ DiscountDetailsComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(OverlayComponent);
+    fixture = TestBed.createComponent(DiscountDetailsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

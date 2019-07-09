@@ -1,1 +1,28 @@
-<p>height works!</p>
+<div class="block">
+
+<h2>Height</h2>
+<hr/>
+<h3>Add height</h3>
+<form (submit)="add(heightName.value); heightName.value">
+<div class="add">
+    <input type="text" #heightName placeholder="Enter new height"/>
+</div>
+    <input type="submit" value="SUBMIT" />
+</form>
+<hr/>
+<h3>Existing Heights</h3>
+<table>
+    <tr *ngFor="let height of heights">
+        <td>
+            <a (click)="edit(height)">
+            <span  *ngIf="height!==editHeight">{{height.name}}</span>
+            <input type="text" *ngIf="height==editHeight" [(ngModel)]="height.name" (blur)="update()" (keyup.enter)="update()" />
+            </a> 
+        </td>
+        <td><button (click)="delete(height)">delete</button></td>
+    </tr>
+</table>
+
+<small>click on name to edit</small>
+
+</div>

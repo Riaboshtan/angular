@@ -1,1 +1,27 @@
-<p>overlay works!</p>
+<div class='block'>
+<h2>Overlay</h2>
+<hr/>
+<h3>Add overlay</h3>
+<form (submit)="add(overlayName.value); overlayName.value">
+<div class="add">
+    <input type="text" #overlayName placeholder="Enter new overlay"/>
+</div>
+    <input type="submit" value="SUBMIT" />
+</form>
+<hr/>
+<h3>Existing Overlays</h3>
+<table>
+    <tr *ngFor="let overlay of overlays">
+        <td>
+            <a (click)="edit(overlay)">
+            <span  *ngIf="overlay!==editOverlay">{{overlay.name}}</span>
+            <input type="text" *ngIf="overlay==editOverlay" [(ngModel)]="overlay.name" (blur)="update()" (keyup.enter)="update()" />
+            </a> 
+        </td>
+        <td><button (click)="delete(overlay)">delete</button></td>
+    </tr>
+</table>
+
+<small>click on name to edit</small>
+
+</div>

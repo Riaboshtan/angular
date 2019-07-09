@@ -1,8 +1,67 @@
+<div class="block">
 <h2>Discounts</h2>
-<!-- <h3>{{errorMsg}}</h3> -->
+<hr/>
+<form #discForm="ngForm" (ngSubmit)="addDisc()" novalidate>
+    <h3>Add new discount</h3>
+    <div>
+        <input type="text" placeholder="Title" name="title" [(ngModel)]="discountModel.title" required>
+    </div>
+    <div>
+        <textarea rows="3" placeholder="Details" name="details" [(ngModel)]="discountModel.details"></textarea>
+    </div>
+    <div>
+        <input type="text" placeholder="Cafe" name="Cafe" [(ngModel)]="discountModel.cafe" required>
+    </div>
+    <div>
+        <input type="text" placeholder="Location" name="Location" [(ngModel)]="discountModel.location" required>
+    </div>
+    <div>
+        <select class="filter" (change)="onChangeCateg($event)" name="category" [(ngModel)]="discountModel.category" required>
+            <option value="0">select category</option>
+            <option *ngFor="let category of categories" [value]="category.id">
+                {{category.name}}
+            </option>
+        </select>
+    </div>
+    <div>
+        <select class="filter" (change)="onChangeTime($event)" name="time" [(ngModel)]="discountModel.time" required>
+            <option value="0">select time</option>
+            <option *ngFor="let time of times" [value]="time.id">
+                {{time.name}}
+            </option>
+        </select>
+    </div>
+    <div>
+        <select class="filter" (change)="onChangeOver($event)" name="overlay" [(ngModel)]="discountModel.overlay" required>
+            <option value="0">select overlay</option>
+            <option *ngFor="let overlay of overlays" [value]="overlay.id">
+                {{overlay.name}}
+            </option>
+        </select>
+    </div>
+    <div>
+        <select class="filter" (change)="onChangeHeight($event)" name="height" [(ngModel)]="discountModel.height" required>
+            <option value="0">select height</option>
+            <option *ngFor="let height of heights" [value]="height.id">
+                {{height.name}}
+            </option>
+        </select>
+    </div>
+    <div>
+        <p>Upload image</p>
+        <input type="file" (change)="onFileSelect($event)" name="image" [(ngModel)]="image" required>
+    </div>
+    <div>
+        <button type="submit">Add</button>
+    </div>
+</form>
+
+
+<hr/>
 <table>
-    <tr *ngFor="let discount of discounts">
-        <td>{{discount.title}} - {{discount.category}} - {{discount.image}}</td>
+    <tr *ngFor="let discount of discounts" >
+        <td>{{discount.id}} - {{discount.title}} - {{discount.details}} - {{discount.location}} - {{discount.time}}</td>
         <td><button (click)="delete(discount)">delete</button></td>
     </tr>
 </table>
+</div>
