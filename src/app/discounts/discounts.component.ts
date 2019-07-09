@@ -94,21 +94,23 @@ export class DiscountsComponent implements OnInit {
       console.log(this.selectedfile)
     }
 
-  // addDisc(){
-  //   const fd = new FormData()
+  addDisc(){
+     const fd = new FormData()
 
-  //   fd.append('title', this.discountModel.title)
-  //   fd.append('details', this.discountModel.details)
-  //   fd.append('cafe', this.discountModel.cafe)
-  //   fd.append('location', this.discountModel.location)
-  //   fd.append('category', this.discountModel.category)
-  //   fd.append('time', this.discountModel.time)
-  //   fd.append('overlay', this.discountModel.overlay)
-  //   fd.append('height', this.discountModel.height)
-  //   fd.append('image', this.selectedfile, this.selectedfile.name)
+     fd.append('title', this.discountModel.title)
+     fd.append('details', this.discountModel.details)
+     fd.append('cafe', this.discountModel.cafe)
+     fd.append('location', this.discountModel.location)
+     fd.append('category', this.discountModel.category)
+     fd.append('time', this.discountModel.time)
+     fd.append('overlay', this.discountModel.overlay)
+     fd.append('height', this.discountModel.height)
+     fd.append('image', this.selectedfile, this.selectedfile.name)
+
+     this.http.post("http://127.0.0.1:5000/api/discounts/", fd).subscribe(res=>console.log(res))
     
-  //   this.discountsService.addDiscount(fd).subscribe(()=> this.getDiscounts())
-  // }
+
+ }
   /*add*/
 
 }
