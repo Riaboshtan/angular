@@ -44,6 +44,12 @@ export class DiscountsComponent implements OnInit {
     this.discountsService.getDiscounts()
         .subscribe(data => this.discounts=data)
   }
+  
+  getDetail(discountId: number){
+    this._route.navigate(['/discounts', discountId]);
+
+  }
+
 
 
   /*add*/ 
