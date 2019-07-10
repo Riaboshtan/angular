@@ -60,8 +60,10 @@
 <hr/>
 <table>
     <tr *ngFor="let discount of discounts" >
-        <td>{{discount.id}} - {{discount.title}} - {{discount.details}} - {{discount.location}} - {{discount.time}}</td>
-        <td><button (click)="delete(discount)">delete</button></td>
+        <div (click)="getDetail(discount.id)">
+            <td>{{discount.title}}</td>
+        </div>
+            <td><button (click)="delete(discount)">delete</button></td>
     </tr>
 </table>
 </div>
