@@ -15,7 +15,7 @@ const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'login'},
   {path: 'category', component: CategoryComponent},
   {path: 'discounts', component: DiscountsComponent},
-  {path: 'discount/details', component: DiscountDetailsComponent},
+  {path: 'discounts/:id', component: DiscountDetailsComponent},
   {path: 'height', component: HeightComponent},
   {path: 'overlay', component: OverlayComponent},
   {path: 'time', component: TimeComponent},
