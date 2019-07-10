@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DiscountDetailsComponent implements OnInit {
 
-  constructor() { }
+  private _id: number;
+  discount: IDiscount;
+
+  constructor(private _route: ActivatedRoute, private discountsService: DiscountsService) { }
 
   ngOnInit() {
+    this._route.paramMap.subscribe(params=>{
+      this._id = +params.get('id');
+      //this.discount =this.discountsService.getDiscount(this._id)
+    });
   }
 
 }
